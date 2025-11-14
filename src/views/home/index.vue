@@ -1,12 +1,6 @@
 <template>
   <div class="home-container">
     <div class="wrapper">
-      <a
-        href="https://github.com/Alessandro-Pang/short-link"
-        class="github-link"
-        target="_blank"
-        ><span v-html="githubIcon"></span> GitHub
-      </a>
       <header>短链接服务</header>
 
       <UrlInput
