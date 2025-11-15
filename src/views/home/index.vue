@@ -129,56 +129,91 @@ function showStats() {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  padding: 20px;
+  background: linear-gradient(135deg, #f5f7fa, #e9eff5);
+  /* 背景加柔和渐变，真实产品常用 */
 }
+
 .wrapper {
-  background: #fff;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  border-radius: 16px;
-  padding: 40px;
-  min-width: 580px;
-  max-width: 680px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 40px 48px;
   width: 100%;
-  text-align: center;
+  max-width: 680px;
+  box-shadow:
+    0 6px 20px rgba(0, 0, 0, 0.06),
+    0 12px 32px rgba(0, 0, 0, 0.04);
+  /* 比之前更真实，更像 SaaS 产品 */
   position: relative;
+  animation: fadeIn 0.4s ease;
   overflow: hidden;
 }
 
+/* 顶部彩条淡化细致，不 AI */
 .wrapper::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
+  height: 5px;
   width: 100%;
-  height: 6px;
-  background: linear-gradient(90deg, #4776e6, #8e54e9);
+  background: linear-gradient(90deg, #4f6af0, #8f4fe9);
+  border-radius: 0 0 6px 6px;
 }
 
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+header {
+  font-size: 32px;
+  font-weight: 700;
+  color: #2c2c2c;
+  margin-bottom: 28px;
+  letter-spacing: 0.2px;
+  position: relative;
+}
+
+/* 底部装饰线更细腻 */
+header::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 52px;
+  height: 3px;
+  background: linear-gradient(90deg, #4f6af0, #8f4fe9);
+  border-radius: 2px;
+}
+
+/* GitHub 链接样式更真实 */
 .github-link {
   position: absolute;
-  top: 16px;
-  right: 16px;
-  text-decoration: none;
-  font-size: 14px;
-  color: #6c5ce7;
-  border: 1px solid #6c5ce7;
-  padding: 8px 16px;
+  top: 18px;
+  right: 18px;
+  padding: 8px 14px;
   border-radius: 50px;
-  transition: all 0.3s ease;
+  color: #4f6af0;
+  border: 1px solid #d2d8ff;
+  font-size: 14px;
+  font-weight: 500;
   display: flex;
   align-items: center;
   gap: 6px;
-}
-
-.github-link span {
-  display: flex;
-  align-items: center;
+  background: #ffffff90;
+  backdrop-filter: blur(6px);
+  transition: all 0.25s ease;
 }
 
 .github-link:hover {
-  background: #6c5ce7;
-  color: #fff;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(108, 92, 231, 0.2);
+  background: #4f6af0;
+  border-color: #4f6af0;
+  color: white;
+  box-shadow: 0 6px 18px rgba(79,106,240,0.25);
+  transform: translateY(-1px);
 }
 
 .github-link :deep(svg) {
@@ -186,37 +221,23 @@ function showStats() {
   height: 16px;
 }
 
-header {
-  font-size: 36px;
-  margin-bottom: 30px;
-  color: #2d3436;
-  font-weight: 700;
-  position: relative;
-  display: inline-block;
-}
-
-header::after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 4px;
-  background: linear-gradient(90deg, #4776e6, #8e54e9);
-  border-radius: 2px;
-}
-
-@media screen and (max-width: 520px) {
+/* 移动端适配 */
+@media (max-width: 540px) {
   .wrapper {
-    padding: 30px 20px;
-    width: 100%;
-    min-width: 0;
-    border-radius: 12px;
+    padding: 28px 20px;
+    border-radius: 16px;
+    max-width: 100%;
   }
 
   header {
-    font-size: 28px;
+    font-size: 26px;
+  }
+
+  .github-link {
+    top: 14px;
+    right: 14px;
+    padding: 6px 10px;
+    font-size: 13px;
   }
 }
 </style>
