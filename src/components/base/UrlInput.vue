@@ -68,7 +68,7 @@ input[type="text"] {
   padding: 14px 14px 14px 44px;
   margin-bottom: 16px;
   border: 2px solid #e0e0e0;
-  border-radius: 12px;
+  border-radius: 30px;
   font-size: 16px;
   transition: all 0.3s ease;
   background-color: #f9f9f9;
@@ -87,7 +87,7 @@ input[type="button"] {
   background: linear-gradient(90deg, #4776E6, #8E54E9);
   color: #fff;
   border: none;
-  border-radius: 12px;
+  border-radius: 30px;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
