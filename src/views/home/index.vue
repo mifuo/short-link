@@ -129,115 +129,83 @@ function showStats() {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  padding: 20px;
-  background: linear-gradient(135deg, #f5f7fa, #e9eff5);
-  /* 背景加柔和渐变，真实产品常用 */
+  padding: 28px;
+  background: #f6f7f8;
+  /* 不用花背景，真实 UI */
 }
 
 .wrapper {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
-  border-radius: 20px;
+  background: #ffffff;
+  border-radius: 14px;
   padding: 40px 48px;
   width: 100%;
-  max-width: 680px;
-  box-shadow:
-    0 6px 20px rgba(0, 0, 0, 0.06),
-    0 12px 32px rgba(0, 0, 0, 0.04);
-  /* 比之前更真实，更像 SaaS 产品 */
-  position: relative;
-  animation: fadeIn 0.4s ease;
-  overflow: hidden;
-}
+  max-width: 640px;
 
-/* 顶部彩条淡化细致，不 AI */
-.wrapper::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 5px;
-  width: 100%;
-  background: linear-gradient(90deg, #4f6af0, #8f4fe9);
-  border-radius: 0 0 6px 6px;
+  border: 1px solid #ebecf0;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+
+  animation: fadeIn 0.3s ease;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
+  from { opacity: 0; transform: translateY(8px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
+/* 标题极简风 */
 header {
-  font-size: 32px;
-  font-weight: 700;
-  color: #2c2c2c;
-  margin-bottom: 28px;
-  letter-spacing: 0.2px;
-  position: relative;
+  font-size: 28px;
+  font-weight: 600;
+  color: #111;
+  text-align: left;
+  margin-bottom: 32px;
 }
 
-/* 底部装饰线更细腻 */
+/* 去掉彩条、渐变、发光 → 更高级更真实 */
 header::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 52px;
-  height: 3px;
-  background: linear-gradient(90deg, #4f6af0, #8f4fe9);
-  border-radius: 2px;
+  display: none;
 }
 
-/* GitHub 链接样式更真实 */
+/* GitHub 链接干净简约 */
 .github-link {
   position: absolute;
-  top: 18px;
-  right: 18px;
-  padding: 8px 14px;
-  border-radius: 50px;
-  color: #4f6af0;
-  border: 1px solid #d2d8ff;
+  top: 20px;
+  right: 20px;
+
+  padding: 6px 14px;
+  border-radius: 8px;
+
+  background: #fafbfc;
+  border: 1px solid #e2e4e8;
+  color: #444;
+
   font-size: 14px;
-  font-weight: 500;
   display: flex;
   align-items: center;
   gap: 6px;
-  background: #ffffff90;
-  backdrop-filter: blur(6px);
-  transition: all 0.25s ease;
+
+  transition: background 0.2s ease, border-color 0.2s ease;
 }
 
 .github-link:hover {
-  background: #4f6af0;
-  border-color: #4f6af0;
-  color: white;
-  box-shadow: 0 6px 18px rgba(79,106,240,0.25);
-  transform: translateY(-1px);
+  background: #f0f1f3;
+  border-color: #d0d1d5;
 }
 
 .github-link :deep(svg) {
-  width: 16px;
-  height: 16px;
+  width: 15px;
+  height: 15px;
+  opacity: 0.7;
 }
 
-/* 移动端适配 */
+/* 移动端 */
 @media (max-width: 540px) {
   .wrapper {
     padding: 28px 20px;
-    border-radius: 16px;
-    max-width: 100%;
   }
 
   header {
-    font-size: 26px;
-  }
-
-  .github-link {
-    top: 14px;
-    right: 14px;
-    padding: 6px 10px;
-    font-size: 13px;
+    font-size: 24px;
   }
 }
 </style>
