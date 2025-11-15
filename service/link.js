@@ -12,10 +12,20 @@ import { createClient } from '@supabase/supabase-js';
 
 const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY)
 
-function generatorHash(url) {
-  const sha256 = crypto.createHash('sha256');
-  const hex = sha256.update(url).digest('hex');
-  return hex.slice(8, 24);
+import crypto from 'node:crypto';
+
+function generateRandomShortCode(length = 6) {
+  // 使用 crypto.randomBytes 生成随机字节
+  const randomBytes = crypto.randomBytes(length);  // 生成 length 字节的随机数
+  return randomBytes.toString('base64') // 转为 base64 编码
+    .replace(/\+/g, '-')  // 将 base64 编码中的 "+" 替换为 "-"（防止 URL 不兼容）
+    .replace(/\//g, '_')  // 将 "/" 替换为 "_"（防止 URL 不兼容）
+    .slice(0, length);  // 截取前 length 长度的字符
+}
+
+export function generatorHash(url) {
+  // 生成完全随机的 6 位短码
+  return generateRandomShortCode(6);
 }
 
 export function getUrl(short) {
