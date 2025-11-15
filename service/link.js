@@ -12,8 +12,6 @@ import { createClient } from '@supabase/supabase-js';
 
 const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY)
 
-import crypto from 'node:crypto';
-
 function generateRandomShortCode(length = 6) {
   // 使用 crypto.randomBytes 生成随机字节
   const randomBytes = crypto.randomBytes(length);  // 生成 length 字节的随机数
