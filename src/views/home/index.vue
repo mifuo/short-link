@@ -129,76 +129,84 @@ function showStats() {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  padding: 28px;
-  background: #f6f7f8;
-  /* 不用花背景，真实 UI */
 }
-
 .wrapper {
-  background: #ffffff;
-  border-radius: 14px;
-  padding: 40px 48px;
+  background: #ffffffad;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  border-radius: 50px;
+  padding: 40px;
+  min-width: 580px;
+  max-width: 680px;
   width: 100%;
-  max-width: 640px;
-
-  border: 1px solid #ebecf0;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.04);
-
-  animation: fadeIn 0.3s ease;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: 1; transform: translateY(0); }
+.wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(90deg, #4776e6, #8e54e9);
 }
 
-/* 标题极简风 */
-header {
-  font-size: 28px;
-  font-weight: 600;
-  color: #111;
-  text-align: left;
-  margin-bottom: 32px;
-}
-
-/* 去掉彩条、渐变、发光 → 更高级更真实 */
-header::after {
-  display: none;
-}
-
-/* GitHub 链接干净简约 */
 .github-link {
   position: absolute;
-  top: 20px;
-  right: 20px;
-
-  padding: 6px 14px;
-  border-radius: 8px;
-
-  background: #fafbfc;
-  border: 1px solid #e2e4e8;
-  color: #444;
-
+  top: 16px;
+  right: 16px;
+  text-decoration: none;
   font-size: 14px;
+  color: #6c5ce7;
+  border: 1px solid #6c5ce7;
+  padding: 8px 16px;
+  border-radius: 50px;
+  transition: all 0.3s ease;
   display: flex;
   align-items: center;
   gap: 6px;
+}
 
-  transition: background 0.2s ease, border-color 0.2s ease;
+.github-link span {
+  display: flex;
+  align-items: center;
 }
 
 .github-link:hover {
-  background: #f0f1f3;
-  border-color: #d0d1d5;
+  background: #6c5ce7;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(108, 92, 231, 0.2);
 }
 
 .github-link :deep(svg) {
-  width: 15px;
-  height: 15px;
-  opacity: 0.7;
+  width: 16px;
+  height: 16px;
 }
 
-/* 移动端 */
+header {
+  font-size: 36px;
+  margin-bottom: 10px;
+  color: #2d3436;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+}
+
+header::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #4776e6, #8e54e9);
+  border-radius: 2px;
+}
+
 @media (max-width: 540px) {
   .wrapper {
     padding: 28px 20px;
