@@ -207,13 +207,16 @@ header::after {
   border-radius: 2px;
 }
 
-@media (max-width: 540px) {
+@media screen and (max-width: 520px) {
   .wrapper {
-    padding: 28px 20px;
+    padding: 30px 20px;
+    width: 100%;
+    min-width: 0;
+    border-radius: 50px;
   }
 
   header {
-    font-size: 24px;
+    font-size: 28px;
   }
 }
 </style>
