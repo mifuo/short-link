@@ -13,9 +13,9 @@ import { createClient } from '@supabase/supabase-js';
 const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY)
 
 function generatorHash(url) {
-  var md5 = crypto.createHash('md5');
-  const hex = md5.update(url).digest('hex')
-  return hex.slice(8, 24)
+  const sha256 = crypto.createHash('sha256');
+  const hex = sha256.update(url).digest('hex');
+  return hex.slice(8, 24);
 }
 
 export function getUrl(short) {
