@@ -32,6 +32,8 @@ export function getUrl(short) {
 
 export async function addUrl(req) {
   const link = req.body.url
+  const existed = await supabase.from('links').select('*').eq('link', link)
+  if (existed.data.length) return { data: existed.data[0] }
   const short = generatorHash(link)
   const isExists = await getUrl(short)
   if (isExists.data.length) return { data: isExists.data[0] }
